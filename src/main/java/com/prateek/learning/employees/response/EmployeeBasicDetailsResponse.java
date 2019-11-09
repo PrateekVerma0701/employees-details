@@ -1,6 +1,6 @@
-package com.prateek.learning.employeesdetails.response;
+package com.prateek.learning.employees.response;
 
-import com.prateek.learning.employeesdetails.entity.Employee;
+import com.prateek.learning.employees.entity.Employee;
 import lombok.Getter;
 import lombok.Setter;
 

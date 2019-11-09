@@ -1,8 +1,8 @@
-package com.prateek.learning.employeesdetails.service;
+package com.prateek.learning.employees.service;
 
-import com.prateek.learning.employeesdetails.model.CompanyModel;
-import com.prateek.learning.employeesdetails.model.EmployeeModel;
-import com.prateek.learning.employeesdetails.response.EmployeeBasicDetailsResponse;
+import com.prateek.learning.employees.model.CompanyModel;
+import com.prateek.learning.employees.model.EmployeeModel;
+import com.prateek.learning.employees.response.EmployeeBasicDetailsResponse;
 
 import java.util.List;
 
