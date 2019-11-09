@@ -3,6 +3,7 @@ package com.prateek.learning.employees.model;
 import com.prateek.learning.employees.entity.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.domain.Page;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +35,7 @@ public class EmployeeModel {
         return employeeModel;
     }
 
-    public static List<EmployeeModel> createAllEmployeeResponseModel(List<Employee> employees) {
+    public static List<EmployeeModel> createAllEmployeeResponseModel(Page<Employee> employees) {
         List<EmployeeModel> employeeModels = new ArrayList<>();
         employees.forEach(employee -> {
             EmployeeModel employeeModel = new EmployeeModel();

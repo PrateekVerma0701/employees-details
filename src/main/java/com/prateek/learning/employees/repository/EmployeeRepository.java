@@ -1,11 +1,11 @@
 package com.prateek.learning.employees.repository;
 
 import com.prateek.learning.employees.entity.Employee;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface EmployeeRepository extends BaseJpaRepository<Employee, Long> {
     Employee findByEmployeeContractorId(Long employeeContractorId);
 
-    List<Employee> findAll();
+    Page<Employee> findAll(Pageable pageable);
 }

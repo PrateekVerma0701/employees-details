@@ -8,6 +8,9 @@ import com.prateek.learning.employees.repository.CompanyRepository;
 import com.prateek.learning.employees.repository.EmployeeRepository;
 import com.prateek.learning.employees.response.EmployeeBasicDetailsResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
@@ -37,9 +40,10 @@ public class EmployeeRecordImpl implements EmployeeRecord {
     }
 
     @Override
-    public List<EmployeeModel> findAllEmployees() {
-        List<Employee> allEmployees = employeeRepository.findAll();
-        return EmployeeModel.createAllEmployeeResponseModel(allEmployees);
+    public Page<EmployeeModel> findAllEmployees(Pageable pageable) {
+        Page<Employee> allEmployees = employeeRepository.findAll(pageable);
+        List<EmployeeModel> employeeModels = EmployeeModel.createAllEmployeeResponseModel(allEmployees);
+        return new PageImpl<>(employeeModels, pageable, allEmployees.getTotalElements());
     }
 
     @Override
@@ -49,8 +53,9 @@ public class EmployeeRecordImpl implements EmployeeRecord {
     }
 
     @Override
-    public List<EmployeeBasicDetailsResponse> findAllEmployeesBasicDetails() {
-        List<Employee> allEmployees = employeeRepository.findAll();
-        return EmployeeBasicDetailsResponse.createAllEmployeeBasicResponseModel(allEmployees);
+    public Page<EmployeeBasicDetailsResponse> findAllEmployeesBasicDetails(Pageable pageable) {
+        Page<Employee> allEmployees = employeeRepository.findAll(pageable);
+        List<EmployeeBasicDetailsResponse> allEmployeeBasicResponseModel = EmployeeBasicDetailsResponse.createAllEmployeeBasicResponseModel(allEmployees);
+        return new PageImpl<>(allEmployeeBasicResponseModel, pageable, allEmployees.getTotalElements());
     }
 }
