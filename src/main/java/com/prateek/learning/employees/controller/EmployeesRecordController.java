@@ -1,9 +1,9 @@
-package com.prateek.learning.employeesdetails.controller;
+package com.prateek.learning.employees.controller;
 
-import com.prateek.learning.employeesdetails.model.CompanyModel;
-import com.prateek.learning.employeesdetails.model.EmployeeModel;
-import com.prateek.learning.employeesdetails.response.EmployeeBasicDetailsResponse;
-import com.prateek.learning.employeesdetails.service.EmployeeRecord;
+import com.prateek.learning.employees.model.CompanyModel;
+import com.prateek.learning.employees.model.EmployeeModel;
+import com.prateek.learning.employees.response.EmployeeBasicDetailsResponse;
+import com.prateek.learning.employees.service.EmployeeRecord;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;

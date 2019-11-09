@@ -1,12 +1,12 @@
-package com.prateek.learning.employeesdetails.service;
+package com.prateek.learning.employees.service;
 
-import com.prateek.learning.employeesdetails.entity.Company;
-import com.prateek.learning.employeesdetails.entity.Employee;
-import com.prateek.learning.employeesdetails.model.CompanyModel;
-import com.prateek.learning.employeesdetails.model.EmployeeModel;
-import com.prateek.learning.employeesdetails.repository.CompanyRepository;
-import com.prateek.learning.employeesdetails.repository.EmployeeRepository;
-import com.prateek.learning.employeesdetails.response.EmployeeBasicDetailsResponse;
+import com.prateek.learning.employees.entity.Company;
+import com.prateek.learning.employees.entity.Employee;
+import com.prateek.learning.employees.model.CompanyModel;
+import com.prateek.learning.employees.model.EmployeeModel;
+import com.prateek.learning.employees.repository.CompanyRepository;
+import com.prateek.learning.employees.repository.EmployeeRepository;
+import com.prateek.learning.employees.response.EmployeeBasicDetailsResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

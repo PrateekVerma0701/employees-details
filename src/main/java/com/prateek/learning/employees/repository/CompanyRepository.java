@@ -1,6 +1,6 @@
-package com.prateek.learning.employeesdetails.repository;
+package com.prateek.learning.employees.repository;
 
-import com.prateek.learning.employeesdetails.entity.Company;
+import com.prateek.learning.employees.entity.Company;
 import org.springframework.stereotype.Repository;
 
 @Repository

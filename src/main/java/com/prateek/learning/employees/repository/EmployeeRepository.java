@@ -1,6 +1,6 @@
-package com.prateek.learning.employeesdetails.repository;
+package com.prateek.learning.employees.repository;
 
-import com.prateek.learning.employeesdetails.entity.Employee;
+import com.prateek.learning.employees.entity.Employee;
 
 import java.util.List;
 

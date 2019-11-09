@@ -1,4 +1,4 @@
-package com.prateek.learning.employeesdetails;
+package com.prateek.learning.employees;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

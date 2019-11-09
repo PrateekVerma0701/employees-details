@@ -1,4 +1,4 @@
-package com.prateek.learning.employeesdetails.repository;
+package com.prateek.learning.employees.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;

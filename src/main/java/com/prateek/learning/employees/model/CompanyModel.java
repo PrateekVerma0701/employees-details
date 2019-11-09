@@ -1,6 +1,6 @@
-package com.prateek.learning.employeesdetails.model;
+package com.prateek.learning.employees.model;
 
-import com.prateek.learning.employeesdetails.entity.Company;
+import com.prateek.learning.employees.entity.Company;
 import lombok.Getter;
 import lombok.Setter;
 
