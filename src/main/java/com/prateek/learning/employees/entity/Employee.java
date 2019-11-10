@@ -48,5 +48,6 @@ public class Employee {
     @JoinTable(name = "employee_project", joinColumns = {
             @JoinColumn(name = "employee_id")}, inverseJoinColumns = {
             @JoinColumn(name = "project_id")})
+    @JsonBackReference
     private List<Project> projects = new ArrayList<>();
 }
