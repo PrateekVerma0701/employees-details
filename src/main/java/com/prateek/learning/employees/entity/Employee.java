@@ -45,7 +45,7 @@ public class Employee {
     private Address address;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "employee_project", joinColumns = {
+    @JoinTable(name = "employees_projects", joinColumns = {
             @JoinColumn(name = "employee_id")}, inverseJoinColumns = {
             @JoinColumn(name = "project_id")})
     @JsonBackReference

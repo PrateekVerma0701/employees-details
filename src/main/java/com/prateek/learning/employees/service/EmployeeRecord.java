@@ -1,19 +1,19 @@
 package com.prateek.learning.employees.service;
 
-import com.prateek.learning.employees.model.CompanyModel;
-import com.prateek.learning.employees.model.EmployeeModel;
-import com.prateek.learning.employees.response.EmployeeBasicDetailsResponse;
+import com.prateek.learning.employees.dto.CompanyDetailResponseDTO;
+import com.prateek.learning.employees.dto.EmployeeDetailResponseDTO;
+import com.prateek.learning.employees.dto.EmployeeBasicDetailResponseDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface EmployeeRecord {
-    CompanyModel findByCompanyId(Long companyId);
+    CompanyDetailResponseDTO findByCompanyId(Long companyId);
 
-    EmployeeModel findByEmployeeId(Long employeeId);
+    EmployeeDetailResponseDTO findByEmployeeId(Long employeeId);
 
-    Page<EmployeeModel> findAllEmployees(Pageable pageable);
+    Page<EmployeeDetailResponseDTO> findAllEmployees(Pageable pageable);
 
-    EmployeeBasicDetailsResponse findByEmployeeIdBasicDetails(Long employeeId);
+    EmployeeBasicDetailResponseDTO findByEmployeeIdBasicDetails(Long employeeId);
 
-    Page<EmployeeBasicDetailsResponse> findAllEmployeesBasicDetails(Pageable pageable);
+    Page<EmployeeBasicDetailResponseDTO> findAllEmployeesBasicDetails(Pageable pageable);
 }

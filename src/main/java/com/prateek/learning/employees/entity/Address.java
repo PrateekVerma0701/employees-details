@@ -1,5 +1,6 @@
 package com.prateek.learning.employees.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,6 +10,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity(name = "address")
+@JsonIgnoreProperties("employees")
 public class Address {
     @Id
     @Column(name = "address_id")

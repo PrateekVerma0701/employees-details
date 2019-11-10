@@ -1,0 +1,28 @@
+INSERT INTO `employees_details`.`address` (`address_id`, `address_line_1`, `address_line_2`, `address_type`, `city`, `country`, `house_number`, `pin_code`, `state`) VALUES ('1', 'Meston Road', 'Mool Ganj', 'House', 'Kanpur', 'India', '201', '208001', 'Uttar Pradesh');
+
+INSERT INTO `employees_details`.`company` (`company_id`, `company_address`, `company_name`) VALUES ('110', 'Mumbai', 'Tech Mahindra');
+
+INSERT INTO `employees_details`.`departments` (`department_id`, `department_name`) VALUES ('101', 'Sales');
+
+INSERT INTO `employees_details`.`employees` (`employee_contractor_id`, `email`, `first_name`, `last_name`, `phone_number`, `address_id`, `company_id`, `department_id`) VALUES ('2311', 'prateek.verma0701@gmail.com', 'Prateek ', 'Verma', '7503939334', '1', '110', '101');
+
+INSERT INTO `employees_details`.`projects` (`project_id`, `project_detail`, `project_name`) VALUES ('1100', 'Reliance Telecom', 'Jio');
+
+INSERT INTO `employees_details`.`employees_projects` (`employee_id`, `project_id`) VALUES ('2311', '1100');
+
+
+
+INSERT INTO `employees_details`.`address` (`address_id`, `address_line_1`, `address_line_2`, `address_type`, `city`, `country`, `house_number`, `pin_code`, `state`) VALUES ('2', 'Kidwai Nagar', 'Mall Road', 'House', 'Kanpur', 'India', '241', '208002', 'Uttar Pradesh');
+
+INSERT INTO `employees_details`.`company` (`company_id`, `company_address`, `company_name`) VALUES ('112', 'Noida', 'Capgemini');
+
+INSERT INTO `employees_details`.`departments` (`department_id`, `department_name`) VALUES ('102', 'Marketing');
+
+INSERT INTO `employees_details`.`employees` (`employee_contractor_id`, `email`, `first_name`, `last_name`, `phone_number`, `address_id`, `company_id`, `department_id`) VALUES ('2322', 'ankit.verma@gmail.com', 'Ankit ', 'Verma', '8960390274', '2', '112', '102');
+
+INSERT INTO `employees_details`.`projects` (`project_id`, `project_detail`, `project_name`) VALUES ('1200', 'Airtel Telecom', 'Airtel Postpaid');
+
+INSERT INTO `employees_details`.`employees_projects` (`employee_id`, `project_id`) VALUES ('2322', '1200');
+
+
+

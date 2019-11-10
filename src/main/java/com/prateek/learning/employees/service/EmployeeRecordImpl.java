@@ -2,11 +2,11 @@ package com.prateek.learning.employees.service;
 
 import com.prateek.learning.employees.entity.Company;
 import com.prateek.learning.employees.entity.Employee;
-import com.prateek.learning.employees.model.CompanyModel;
-import com.prateek.learning.employees.model.EmployeeModel;
+import com.prateek.learning.employees.dto.CompanyDetailResponseDTO;
+import com.prateek.learning.employees.dto.EmployeeDetailResponseDTO;
 import com.prateek.learning.employees.repository.CompanyRepository;
 import com.prateek.learning.employees.repository.EmployeeRepository;
-import com.prateek.learning.employees.response.EmployeeBasicDetailsResponse;
+import com.prateek.learning.employees.dto.EmployeeBasicDetailResponseDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -28,34 +28,34 @@ public class EmployeeRecordImpl implements EmployeeRecord {
     private final EntityManager entityManager;
 
     @Override
-    public CompanyModel findByCompanyId(Long companyId) {
+    public CompanyDetailResponseDTO findByCompanyId(Long companyId) {
         Company company = companyRepository.findByCompanyId(companyId);
-        return CompanyModel.createCompanyResponseModel(company);
+        return CompanyDetailResponseDTO.createCompanyResponseModel(company);
     }
 
     @Override
-    public EmployeeModel findByEmployeeId(Long employeeContractorId) {
+    public EmployeeDetailResponseDTO findByEmployeeId(Long employeeContractorId) {
         Employee employee = employeeRepository.findByEmployeeContractorId(employeeContractorId);
-        return EmployeeModel.createEmployeeResponseModel(employee);
+        return EmployeeDetailResponseDTO.createEmployeeResponseModel(employee);
     }
 
     @Override
-    public Page<EmployeeModel> findAllEmployees(Pageable pageable) {
+    public Page<EmployeeDetailResponseDTO> findAllEmployees(Pageable pageable) {
         Page<Employee> allEmployees = employeeRepository.findAll(pageable);
-        List<EmployeeModel> employeeModels = EmployeeModel.createAllEmployeeResponseModel(allEmployees);
-        return new PageImpl<>(employeeModels, pageable, allEmployees.getTotalElements());
+        List<EmployeeDetailResponseDTO> employeeDetailResponseDTOS = EmployeeDetailResponseDTO.createAllEmployeeResponseModel(allEmployees);
+        return new PageImpl<>(employeeDetailResponseDTOS, pageable, allEmployees.getTotalElements());
     }
 
     @Override
-    public EmployeeBasicDetailsResponse findByEmployeeIdBasicDetails(Long employeeContractorId) {
+    public EmployeeBasicDetailResponseDTO findByEmployeeIdBasicDetails(Long employeeContractorId) {
         Employee employee = employeeRepository.findByEmployeeContractorId(employeeContractorId);
-        return EmployeeBasicDetailsResponse.createEmployeeBasicResponseModel(employee);
+        return EmployeeBasicDetailResponseDTO.createEmployeeBasicResponseModel(employee);
     }
 
     @Override
-    public Page<EmployeeBasicDetailsResponse> findAllEmployeesBasicDetails(Pageable pageable) {
+    public Page<EmployeeBasicDetailResponseDTO> findAllEmployeesBasicDetails(Pageable pageable) {
         Page<Employee> allEmployees = employeeRepository.findAll(pageable);
-        List<EmployeeBasicDetailsResponse> allEmployeeBasicResponseModel = EmployeeBasicDetailsResponse.createAllEmployeeBasicResponseModel(allEmployees);
+        List<EmployeeBasicDetailResponseDTO> allEmployeeBasicResponseModel = EmployeeBasicDetailResponseDTO.createAllEmployeeBasicResponseModel(allEmployees);
         return new PageImpl<>(allEmployeeBasicResponseModel, pageable, allEmployees.getTotalElements());
     }
 }

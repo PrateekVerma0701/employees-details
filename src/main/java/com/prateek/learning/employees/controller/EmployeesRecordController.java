@@ -1,8 +1,8 @@
 package com.prateek.learning.employees.controller;
 
-import com.prateek.learning.employees.model.CompanyModel;
-import com.prateek.learning.employees.model.EmployeeModel;
-import com.prateek.learning.employees.response.EmployeeBasicDetailsResponse;
+import com.prateek.learning.employees.dto.CompanyDetailResponseDTO;
+import com.prateek.learning.employees.dto.EmployeeDetailResponseDTO;
+import com.prateek.learning.employees.dto.EmployeeBasicDetailResponseDTO;
 import com.prateek.learning.employees.service.EmployeeRecord;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,27 +23,27 @@ public class EmployeesRecordController {
     private final EmployeeRecord employeeRecordService;
 
     @GetMapping(value = "v1.0/company/{companyId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public CompanyModel findByCompanyId(@PathVariable Long companyId) {
+    public CompanyDetailResponseDTO findByCompanyId(@PathVariable Long companyId) {
         return employeeRecordService.findByCompanyId(companyId);
     }
 
     @GetMapping(value = "v1.0/employee/{employeeId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public EmployeeModel findByEmployeeId(@PathVariable Long employeeId) {
+    public EmployeeDetailResponseDTO findByEmployeeId(@PathVariable Long employeeId) {
         return employeeRecordService.findByEmployeeId(employeeId);
     }
 
     @GetMapping(value = "v1.0/employee/all", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Page<EmployeeModel> findAllEmployees() {
+    public Page<EmployeeDetailResponseDTO> findAllEmployees() {
         return employeeRecordService.findAllEmployees(PageRequest.of(0, 100));
     }
 
     @GetMapping(value = "v1.0/employee/basic/{employeeId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public EmployeeBasicDetailsResponse findByEmployeeIdBasicDetails(@PathVariable Long employeeId) {
+    public EmployeeBasicDetailResponseDTO findByEmployeeIdBasicDetails(@PathVariable Long employeeId) {
         return employeeRecordService.findByEmployeeIdBasicDetails(employeeId);
     }
 
     @GetMapping(value = "v1.0/employee/basic/all", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Page<EmployeeBasicDetailsResponse> findAllEmployeesBasicDetails() {
+    public Page<EmployeeBasicDetailResponseDTO> findAllEmployeesBasicDetails() {
         return employeeRecordService.findAllEmployeesBasicDetails(PageRequest.of(0, 100));
     }
 }
