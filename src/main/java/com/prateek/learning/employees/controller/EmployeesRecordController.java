@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collections;
+import java.util.List;
+
 @Slf4j
 @RestController
 @RequiredArgsConstructor
@@ -22,27 +25,27 @@ public class EmployeesRecordController {
 
     private final EmployeeRecord employeeRecordService;
 
-    @GetMapping(value = "v1.0/company/{companyId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "api/v1.0/company/{companyId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public CompanyDetailResponseDTO findByCompanyId(@PathVariable Long companyId) {
         return employeeRecordService.findByCompanyId(companyId);
     }
 
-    @GetMapping(value = "v1.0/employee/{employeeId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "api/v1.0/employee/{employeeId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public EmployeeDetailResponseDTO findByEmployeeId(@PathVariable Long employeeId) {
         return employeeRecordService.findByEmployeeId(employeeId);
     }
 
-    @GetMapping(value = "v1.0/employee/all", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "api/v1.0/employee/all", produces = MediaType.APPLICATION_JSON_VALUE)
     public Page<EmployeeDetailResponseDTO> findAllEmployees() {
         return employeeRecordService.findAllEmployees(PageRequest.of(0, 100));
     }
 
-    @GetMapping(value = "v1.0/employee/basic/{employeeId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public EmployeeBasicDetailResponseDTO findByEmployeeIdBasicDetails(@PathVariable Long employeeId) {
-        return employeeRecordService.findByEmployeeIdBasicDetails(employeeId);
+    @GetMapping(value = "api/v1.0/employee/basic/{employeeId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<EmployeeBasicDetailResponseDTO> findByEmployeeIdBasicDetails(@PathVariable Long employeeId) {
+        return Collections.singletonList(employeeRecordService.findByEmployeeIdBasicDetails(employeeId));
     }
 
-    @GetMapping(value = "v1.0/employee/basic/all", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "api/v1.0/employee/basic/all", produces = MediaType.APPLICATION_JSON_VALUE)
     public Page<EmployeeBasicDetailResponseDTO> findAllEmployeesBasicDetails() {
         return employeeRecordService.findAllEmployeesBasicDetails(PageRequest.of(0, 100));
     }
