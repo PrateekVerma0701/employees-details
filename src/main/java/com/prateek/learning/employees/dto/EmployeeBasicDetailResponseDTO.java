@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.prateek.learning.employees.utils.EmployeeRecordUtils.COMMA_DELIMITER_WITH_SPACE;
-import static com.prateek.learning.employees.utils.EmployeeRecordUtils.SPACE;
+import static com.prateek.learning.employees.utils.EmployeeRecordConstant.COMMA_DELIMITER_WITH_SPACE;
+import static com.prateek.learning.employees.utils.EmployeeRecordConstant.SPACE;
 
 @Getter
 @Setter
