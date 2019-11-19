@@ -1,12 +1,10 @@
 package com.prateek.learning.employees.service;
 
-import com.prateek.learning.employees.entity.Company;
+import com.prateek.learning.employees.dto.response.EmployeeBasicDetailResponseDTO;
+import com.prateek.learning.employees.dto.response.EmployeeDetailResponseDTO;
 import com.prateek.learning.employees.entity.Employee;
-import com.prateek.learning.employees.dto.CompanyDetailResponseDTO;
-import com.prateek.learning.employees.dto.EmployeeDetailResponseDTO;
 import com.prateek.learning.employees.repository.CompanyRepository;
 import com.prateek.learning.employees.repository.EmployeeRepository;
-import com.prateek.learning.employees.dto.EmployeeBasicDetailResponseDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -26,12 +24,6 @@ public class EmployeeRecordImpl implements EmployeeRecord {
 
     @PersistenceContext
     private final EntityManager entityManager;
-
-    @Override
-    public CompanyDetailResponseDTO findByCompanyId(Long companyId) {
-        Company company = companyRepository.findByCompanyId(companyId);
-        return CompanyDetailResponseDTO.createCompanyResponseModel(company);
-    }
 
     @Override
     public EmployeeDetailResponseDTO findByEmployeeId(Long employeeContractorId) {

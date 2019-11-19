@@ -21,6 +21,9 @@ public class Department {
     @Column(name = "department_name", nullable = false)
     private String departmentName;
 
+    @Column(name = "department_detail", nullable = false)
+    private String departmentDetail;
+
     @OneToMany(mappedBy = "department")
     @JsonManagedReference
     private List<Employee> employees;

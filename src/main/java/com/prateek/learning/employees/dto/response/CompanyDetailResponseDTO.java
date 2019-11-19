@@ -1,4 +1,4 @@
-package com.prateek.learning.employees.dto;
+package com.prateek.learning.employees.dto.response;
 
 import com.prateek.learning.employees.entity.Company;
 import lombok.Getter;

@@ -23,8 +23,4 @@ public class Company {
 
     @Column(name = "company_address", nullable = false)
     private String companyAddress;
-
-    @OneToMany(mappedBy = "company")
-    @JsonManagedReference
-    private List<Employee> employees;
 }

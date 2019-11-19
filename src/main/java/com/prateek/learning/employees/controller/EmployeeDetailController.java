@@ -1,8 +1,7 @@
 package com.prateek.learning.employees.controller;
 
-import com.prateek.learning.employees.dto.CompanyDetailResponseDTO;
-import com.prateek.learning.employees.dto.EmployeeDetailResponseDTO;
-import com.prateek.learning.employees.dto.EmployeeBasicDetailResponseDTO;
+import com.prateek.learning.employees.dto.response.EmployeeBasicDetailResponseDTO;
+import com.prateek.learning.employees.dto.response.EmployeeDetailResponseDTO;
 import com.prateek.learning.employees.service.EmployeeRecord;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,14 +20,10 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping
-public class EmployeesRecordController {
+public class EmployeeDetailController {
 
     private final EmployeeRecord employeeRecordService;
 
-    @GetMapping(value = "api/v1.0/company/{companyId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public CompanyDetailResponseDTO findByCompanyId(@PathVariable Long companyId) {
-        return employeeRecordService.findByCompanyId(companyId);
-    }
 
     @GetMapping(value = "api/v1.0/employee/{employeeId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public EmployeeDetailResponseDTO findByEmployeeId(@PathVariable Long employeeId) {
@@ -50,5 +45,3 @@ public class EmployeesRecordController {
         return employeeRecordService.findAllEmployeesBasicDetails(PageRequest.of(0, 100));
     }
 }
-
-
