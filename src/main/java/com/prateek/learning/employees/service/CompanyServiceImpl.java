@@ -1,9 +1,11 @@
 package com.prateek.learning.employees.service;
 
+import com.prateek.learning.employees.dto.ResponseDTO;
 import com.prateek.learning.employees.dto.request.CompanyRequestDTO;
 import com.prateek.learning.employees.dto.response.CompanyDetailResponseDTO;
 import com.prateek.learning.employees.entity.Company;
 import com.prateek.learning.employees.repository.CompanyRepository;
+import com.prateek.learning.employees.validation.CompanyRequestValidation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,7 @@ import javax.persistence.PersistenceContext;
 public class CompanyServiceImpl implements CompanyService {
 
     private final CompanyRepository companyRepository;
+    private final CompanyRequestValidation companyRequestValidation;
 
     @PersistenceContext
     private final EntityManager entityManager;
@@ -26,11 +29,17 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public String saveCompany(CompanyRequestDTO companyRequestDTO) {
-        Company company = new Company();
-        company.setCompanyName(companyRequestDTO.getCompanyName());
-        company.setCompanyAddress(companyRequestDTO.getCompanyAddress());
-        companyRepository.save(company);
-        return "Company record created successfully";
+    public ResponseDTO saveCompany(CompanyRequestDTO companyRequestDTO) {
+        ResponseDTO validateResponse = companyRequestValidation.validateCompanyRequest(companyRequestDTO);
+        if (validateResponse.isStatus()) {
+            Company company = new Company();
+            company.setCompanyName(companyRequestDTO.getCompanyName());
+            company.setCompanyAddress(companyRequestDTO.getCompanyAddress());
+            companyRepository.save(company);
+            ResponseDTO responseDTO = new ResponseDTO(true, "Company record created successfully");
+            return responseDTO;
+        } else {
+            return validateResponse;
+        }
     }
 }

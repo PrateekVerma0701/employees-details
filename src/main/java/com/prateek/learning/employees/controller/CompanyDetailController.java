@@ -1,5 +1,6 @@
 package com.prateek.learning.employees.controller;
 
+import com.prateek.learning.employees.dto.ResponseDTO;
 import com.prateek.learning.employees.dto.request.CompanyRequestDTO;
 import com.prateek.learning.employees.dto.response.CompanyDetailResponseDTO;
 import com.prateek.learning.employees.service.CompanyService;
@@ -20,8 +21,8 @@ public class CompanyDetailController {
         return companyService.findByCompanyId(companyId);
     }
 
-    @PostMapping(value = "api/v1.0/company", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String saveCompany(@RequestBody CompanyRequestDTO companyRequestDTO) {
+    @PostMapping(value = "api/v1.0/company", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseDTO saveCompany(@RequestBody CompanyRequestDTO companyRequestDTO) {
         return companyService.saveCompany(companyRequestDTO);
     }
 }
