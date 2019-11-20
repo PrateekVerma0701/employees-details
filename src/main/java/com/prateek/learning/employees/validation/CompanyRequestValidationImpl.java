@@ -25,10 +25,7 @@ public class CompanyRequestValidationImpl implements CompanyRequestValidation {
     @Override
     public ResponseDTO validateCompanyRequest(CompanyRequestDTO companyRequestDTO) {
         ResponseDTO responseDTO = new ResponseDTO<>(Boolean.FALSE);
-        Set<ConstraintViolation> constraintViolations = new HashSet<>();
-
-        constraintViolations.addAll(validator.validate(companyRequestDTO));
-
+        Set<ConstraintViolation> constraintViolations = new HashSet<>(validator.validate(companyRequestDTO));
         for (ConstraintViolation<?> violation : constraintViolations) {
             responseDTO.setMessage(messageSource.getMessage("validation.error", EmployeeRecordConstant.EMPTY_ARGS, LocaleContextHolder.getLocale()));
             responseDTO.addError(new ErrorDTO("1001", messageSource.getMessage(violation.getMessage(), EmployeeRecordConstant.EMPTY_ARGS, LocaleContextHolder.getLocale())));
