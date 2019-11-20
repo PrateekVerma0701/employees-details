@@ -9,9 +9,9 @@ import javax.validation.constraints.NotEmpty;
 @Setter
 public class CompanyRequestDTO {
 
-    @NotEmpty(message = "{company.name.mandatory}")
+    @NotEmpty(message = "company.name.mandatory")
     private String companyName;
 
-    @NotEmpty(message = "{company.address.mandatory}")
+    @NotEmpty(message = "company.address.mandatory")
     private String companyAddress;
 }

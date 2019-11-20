@@ -31,7 +31,7 @@ public class CompanyRequestValidationImpl implements CompanyRequestValidation {
 
         for (ConstraintViolation<?> violation : constraintViolations) {
             responseDTO.setMessage(messageSource.getMessage("validation.error", EmployeeRecordConstant.EMPTY_ARGS, LocaleContextHolder.getLocale()));
-            responseDTO.addError(new ErrorDTO("1001", violation.getMessage()));
+            responseDTO.addError(new ErrorDTO("1001", messageSource.getMessage(violation.getMessage(), EmployeeRecordConstant.EMPTY_ARGS, LocaleContextHolder.getLocale())));
 
         }
         responseDTO.setStatus(CollectionUtils.isEmpty(responseDTO.getErrors()));
