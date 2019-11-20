@@ -1,5 +1,6 @@
 package com.prateek.learning.employees.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
@@ -41,7 +42,8 @@ public class Address {
     @Column(name = "pin_code", nullable = false)
     private String pinCode;
 
-    @OneToOne(mappedBy = "address")
-    @JsonManagedReference
+    @OneToOne()
+    @JoinColumn(name = "employee_contractor_id", unique = true)
+    @JsonBackReference
     private Employee employees;
 }
