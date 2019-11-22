@@ -8,15 +8,16 @@ import lombok.Setter;
 @Setter
 public class CompanyDetailResponseDTO {
     private Long companyId;
+    private Long registrationId;
     private String companyName;
     private String companyAddress;
 
     public static CompanyDetailResponseDTO createCompanyResponseModel(Company company) {
         CompanyDetailResponseDTO companyDetailResponseDTO = new CompanyDetailResponseDTO();
         companyDetailResponseDTO.setCompanyId(company.getCompanyId());
+        companyDetailResponseDTO.setRegistrationId(company.getCompanyPK().getRegistrationId());
         companyDetailResponseDTO.setCompanyAddress(company.getCompanyAddress());
         companyDetailResponseDTO.setCompanyName(company.getCompanyName());
         return companyDetailResponseDTO;
     }
 }
-

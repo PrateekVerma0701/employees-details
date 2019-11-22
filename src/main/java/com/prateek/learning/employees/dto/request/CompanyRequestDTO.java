@@ -4,10 +4,16 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
 public class CompanyRequestDTO {
+    @NotNull(message = "company.registration.id.mandatory")
+    private Long registrationId;
+
+    @NotNull(message = "global.company.id.mandatory")
+    private Long globalCompanyId;
 
     @NotEmpty(message = "company.name.mandatory")
     private String companyName;

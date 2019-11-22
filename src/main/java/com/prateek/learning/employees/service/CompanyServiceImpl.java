@@ -4,6 +4,7 @@ import com.prateek.learning.employees.dto.ResponseDTO;
 import com.prateek.learning.employees.dto.request.CompanyRequestDTO;
 import com.prateek.learning.employees.dto.response.CompanyDetailResponseDTO;
 import com.prateek.learning.employees.entity.Company;
+import com.prateek.learning.employees.entity.CompanyPK;
 import com.prateek.learning.employees.repository.CompanyRepository;
 import com.prateek.learning.employees.validation.CompanyRequestValidation;
 import lombok.RequiredArgsConstructor;
@@ -33,11 +34,14 @@ public class CompanyServiceImpl implements CompanyService {
         ResponseDTO validateResponse = companyRequestValidation.validateCompanyRequest(companyRequestDTO);
         if (validateResponse.isStatus()) {
             Company company = new Company();
+            CompanyPK companyPK = new CompanyPK();
+            companyPK.setRegistrationId(companyRequestDTO.getRegistrationId());
+            companyPK.setGlobalCompanyId(companyRequestDTO.getGlobalCompanyId());
+            company.setCompanyPK(companyPK);
             company.setCompanyName(companyRequestDTO.getCompanyName());
             company.setCompanyAddress(companyRequestDTO.getCompanyAddress());
             companyRepository.save(company);
-            ResponseDTO responseDTO = new ResponseDTO(true, "Company record created successfully");
-            return responseDTO;
+            return new ResponseDTO(true, "Company record created successfully");
         } else {
             return validateResponse;
         }

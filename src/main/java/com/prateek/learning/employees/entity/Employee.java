@@ -36,7 +36,9 @@ public class Employee {
     private Department department;
 
     @ManyToOne
-    @JoinColumn(name = "company_id")
+    @JoinColumns({
+            @JoinColumn(name = "registration_id"),
+            @JoinColumn(name = "global_company_id")})
     @JsonBackReference
     private Company company;
 
