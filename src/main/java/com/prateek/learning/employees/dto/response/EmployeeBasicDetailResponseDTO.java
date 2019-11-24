@@ -36,7 +36,7 @@ public class EmployeeBasicDetailResponseDTO {
         employeeBasicDetailResponseDTO.setDepartmentName(employee.getDepartment().getDepartmentName());
         employeeBasicDetailResponseDTO.setProjects(getEmployeeProjects(employee.getProjects()));
         employeeBasicDetailResponseDTO.setCompanyName(employee.getCompany().getCompanyName());
-        employeeBasicDetailResponseDTO.setCompanyId(employee.getCompany().getCompanyId());
+        employeeBasicDetailResponseDTO.setCompanyId(employee.getCompany().getContractorId());
         employeeBasicDetailResponseDTO.setFullName(employee.getFirstName().concat(SPACE).concat(employee.getLastName()));
         employeeBasicDetailResponseDTO.setPhoneNumber(employee.getPhoneNumber());
         employeeBasicDetailResponseDTO.setEmail(employee.getEmail());
@@ -56,7 +56,7 @@ public class EmployeeBasicDetailResponseDTO {
             employeeBasicDetailResponseDTO.setDepartmentName(employee.getDepartment().getDepartmentName());
             employeeBasicDetailResponseDTO.setProjects(getEmployeeProjects(employee.getProjects()));
             employeeBasicDetailResponseDTO.setCompanyName(employee.getCompany().getCompanyName());
-            employeeBasicDetailResponseDTO.setCompanyId(employee.getCompany().getCompanyId());
+            employeeBasicDetailResponseDTO.setCompanyId(employee.getCompany().getContractorId());
             employeeBasicDetailResponseDTO.setFullName(employee.getFirstName().concat(SPACE).concat(employee.getLastName()));
             employeeBasicDetailResponseDTO.setPhoneNumber(employee.getPhoneNumber());
             employeeBasicDetailResponseDTO.setEmail(employee.getEmail());

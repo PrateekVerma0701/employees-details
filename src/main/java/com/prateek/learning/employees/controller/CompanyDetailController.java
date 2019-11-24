@@ -17,8 +17,8 @@ public class CompanyDetailController {
     private final CompanyService companyService;
 
     @GetMapping(value = "api/v1.0/company/{companyId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public CompanyDetailResponseDTO findByCompanyId(@PathVariable Long companyId) {
-        return companyService.findByCompanyId(companyId);
+    public CompanyDetailResponseDTO findByCompanyId(@PathVariable Long contractorId) {
+        return companyService.findByCompanyId(contractorId);
     }
 
     @PostMapping(value = "api/v1.0/company", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)

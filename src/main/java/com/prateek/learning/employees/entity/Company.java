@@ -17,8 +17,8 @@ public class Company {
     private CompanyPK companyPK;
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "company_id")
-    private Long companyId;
+    @Column(name = "contractor_id")
+    private Long contractorId;
 
     @Column(name = "company_name", nullable = false)
     private String companyName;

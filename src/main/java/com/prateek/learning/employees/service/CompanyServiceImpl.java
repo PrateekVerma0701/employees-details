@@ -24,8 +24,8 @@ public class CompanyServiceImpl implements CompanyService {
     private final EntityManager entityManager;
 
     @Override
-    public CompanyDetailResponseDTO findByCompanyId(Long companyId) {
-        Company company = companyRepository.findByCompanyId(companyId);
+    public CompanyDetailResponseDTO findByCompanyId(Long contractorId) {
+        Company company = companyRepository.findByContractorId(contractorId);
         return CompanyDetailResponseDTO.createCompanyResponseModel(company);
     }
 

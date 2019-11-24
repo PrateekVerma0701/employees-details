@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CompanyRepository extends BaseJpaRepository<Company, Long> {
-    Company findByCompanyId(Long companyId);
+    Company findByContractorId(Long contractorId);
 }
