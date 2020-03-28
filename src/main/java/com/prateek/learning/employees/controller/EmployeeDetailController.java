@@ -23,8 +23,7 @@ import java.util.List;
 public class EmployeeDetailController {
 
     private final EmployeeRecord employeeRecordService;
-
-
+    
     @GetMapping(value = "api/v1.0/employee/{employeeId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public EmployeeDetailResponseDTO findByEmployeeId(@PathVariable Long employeeId) {
         return employeeRecordService.findByEmployeeId(employeeId);

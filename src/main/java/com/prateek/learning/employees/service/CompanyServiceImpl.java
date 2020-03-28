@@ -26,9 +26,20 @@ public class CompanyServiceImpl implements CompanyService {
     private final EntityManager entityManager;
 
     @Override
-    public CompanyDetailResponseDTO findByContractorId(Long contractorId) {
+    public ResponseDTO findByContractorId(Long contractorId) {
+        ResponseDTO<Object> responseDTO = new ResponseDTO<>(Boolean.TRUE);
         Optional<Company> companyRecord = companyRepository.findByContractorId(contractorId);
-        return companyRecord.map(CompanyDetailResponseDTO::createCompanyResponseModel).orElseGet(CompanyDetailResponseDTO::new);
+        if (companyRecord.isPresent()) {
+            responseDTO.setStatus(Boolean.TRUE);
+            responseDTO.setMessage(String.format("Record fetched for contractor id : %s ", contractorId));
+            responseDTO.setData(CompanyDetailResponseDTO.createCompanyResponseModel(companyRecord.get()));
+            return responseDTO;
+        } else {
+            responseDTO.setStatus(Boolean.FALSE);
+            responseDTO.setMessage(String.format("Company record can not be fetched. Record not present for contractor id : %s", contractorId));
+            responseDTO.addError(new ErrorDTO("101", "Record does not exist."));
+            return responseDTO;
+        }
     }
 
     @Override
@@ -55,10 +66,10 @@ public class CompanyServiceImpl implements CompanyService {
         Optional<Company> companyToBeDeleted = companyRepository.findByContractorId(contractorId);
         if (companyToBeDeleted.isPresent()) {
             companyRepository.delete(companyToBeDeleted.get());
-            return new ResponseDTO(true, "Company record deleted successfully.");
+            return new ResponseDTO(true, String.format("Company record deleted successfully for contractor id : %s", contractorId));
         } else {
             ResponseDTO responseDTO = new ResponseDTO<>(Boolean.FALSE);
-            responseDTO.setMessage("Company record to be deleted does not exist.");
+            responseDTO.setMessage(String.format("Company record can not be deleted. Record not present for contractor id : %s", contractorId));
             responseDTO.addError(new ErrorDTO("101", "Record does not exist."));
             return responseDTO;
         }
