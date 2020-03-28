@@ -15,6 +15,9 @@ public class CompanyRequestDTO {
     @NotNull(message = "global.company.id.mandatory")
     private Long globalCompanyId;
 
+    @NotNull(message = "contractor.id.mandatory")
+    private Long contractorId;
+
     @NotEmpty(message = "company.name.mandatory")
     private String companyName;
 

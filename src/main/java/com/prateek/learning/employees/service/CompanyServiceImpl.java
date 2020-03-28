@@ -37,6 +37,7 @@ public class CompanyServiceImpl implements CompanyService {
             CompanyPK companyPK = new CompanyPK();
             companyPK.setRegistrationId(companyRequestDTO.getRegistrationId());
             companyPK.setGlobalCompanyId(companyRequestDTO.getGlobalCompanyId());
+            company.setContractorId(companyRequestDTO.getContractorId());
             company.setCompanyPK(companyPK);
             company.setCompanyName(companyRequestDTO.getCompanyName());
             company.setCompanyAddress(companyRequestDTO.getCompanyAddress());
