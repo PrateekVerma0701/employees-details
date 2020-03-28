@@ -1,5 +1,6 @@
 package com.prateek.learning.employees.service;
 
+import com.prateek.learning.employees.dto.ErrorDTO;
 import com.prateek.learning.employees.dto.ResponseDTO;
 import com.prateek.learning.employees.dto.request.CompanyRequestDTO;
 import com.prateek.learning.employees.dto.response.CompanyDetailResponseDTO;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -24,9 +26,9 @@ public class CompanyServiceImpl implements CompanyService {
     private final EntityManager entityManager;
 
     @Override
-    public CompanyDetailResponseDTO findByCompanyId(Long contractorId) {
-        Company company = companyRepository.findByContractorId(contractorId);
-        return CompanyDetailResponseDTO.createCompanyResponseModel(company);
+    public CompanyDetailResponseDTO findByContractorId(Long contractorId) {
+        Optional<Company> companyRecord = companyRepository.findByContractorId(contractorId);
+        return companyRecord.map(CompanyDetailResponseDTO::createCompanyResponseModel).orElseGet(CompanyDetailResponseDTO::new);
     }
 
     @Override
@@ -45,6 +47,20 @@ public class CompanyServiceImpl implements CompanyService {
             return new ResponseDTO(true, "Company record created successfully");
         } else {
             return validateResponse;
+        }
+    }
+
+    @Override
+    public ResponseDTO deleteCompany(Long contractorId) {
+        Optional<Company> companyToBeDeleted = companyRepository.findByContractorId(contractorId);
+        if (companyToBeDeleted.isPresent()) {
+            companyRepository.delete(companyToBeDeleted.get());
+            return new ResponseDTO(true, "Company record deleted successfully.");
+        } else {
+            ResponseDTO responseDTO = new ResponseDTO<>(Boolean.FALSE);
+            responseDTO.setMessage("Company record to be deleted does not exist.");
+            responseDTO.addError(new ErrorDTO("101", "Record does not exist."));
+            return responseDTO;
         }
     }
 }
