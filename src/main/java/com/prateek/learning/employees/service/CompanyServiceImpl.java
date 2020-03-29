@@ -48,10 +48,10 @@ public class CompanyServiceImpl implements CompanyService {
         if (validateResponse.isStatus()) {
             Company company = new Company();
             CompanyPK companyPK = new CompanyPK();
-            companyPK.setRegistrationId(companyRequestDTO.getRegistrationId());
             companyPK.setGlobalCompanyId(companyRequestDTO.getGlobalCompanyId());
-            company.setContractorId(companyRequestDTO.getContractorId());
+            companyPK.setRegistrationId(companyRequestDTO.getRegistrationId());
             company.setCompanyPK(companyPK);
+            company.setContractorId(companyRequestDTO.getContractorId());
             company.setCompanyName(companyRequestDTO.getCompanyName());
             company.setCompanyAddress(companyRequestDTO.getCompanyAddress());
             companyRepository.save(company);

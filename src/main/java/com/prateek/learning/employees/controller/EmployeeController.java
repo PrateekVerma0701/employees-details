@@ -20,7 +20,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping
-public class EmployeeDetailController {
+public class EmployeeController {
 
     private final EmployeeRecord employeeRecordService;
     

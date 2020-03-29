@@ -16,7 +16,6 @@ public class Company {
     @EmbeddedId
     private CompanyPK companyPK;
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "contractor_id")
     private Long contractorId;
 

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping
-public class CompanyDetailController {
+public class CompanyController {
     private final CompanyService companyService;
 
     @GetMapping(value = "api/v1.0/company/{contractorId}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -26,7 +26,7 @@ public class CompanyDetailController {
         return companyService.saveCompany(companyRequestDTO);
     }
 
-    @GetMapping(value = "api/v1.0/company/delete/{contractorId}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "api/v1.0/company/delete/{contractorId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseDTO deleteCompany(@PathVariable Long contractorId) {
         return companyService.deleteCompany(contractorId);
     }

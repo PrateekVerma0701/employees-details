@@ -9,11 +9,11 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 public class CompanyRequestDTO {
-    @NotNull(message = "company.registration.id.mandatory")
-    private Long registrationId;
-
     @NotNull(message = "global.company.id.mandatory")
     private Long globalCompanyId;
+
+    @NotNull(message = "company.registration.id.mandatory")
+    private Long registrationId;
 
     @NotNull(message = "contractor.id.mandatory")
     private Long contractorId;
