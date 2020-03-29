@@ -29,8 +29,10 @@ public class Project {
     @JsonManagedReference
     private List<Employee> employees = new ArrayList<>();
 
-     /*Updating the associations on both entities is an error-prone task.
-    It’s, therefore, a good practice to provide helper methods for it.*/
+     /*
+     Updating the associations on both entities is an error-prone task.
+    It’s, therefore, a good practice to provide helper methods for it.
+    */
 
     public void addEmployee(Employee employee) {
         this.employees.add(employee);
