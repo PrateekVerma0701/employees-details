@@ -2,6 +2,7 @@ package com.prateek.learning.employees.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.prateek.learning.employees.utils.AddressType;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,8 +18,9 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long addressId;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "address_type", nullable = false)
-    private String addressType;
+    private AddressType addressType;
 
     @Column(name = "house_number", nullable = false)
     private String houseNumber;
