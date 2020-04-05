@@ -9,10 +9,12 @@ import com.prateek.learning.employees.entity.CompanyPK;
 import com.prateek.learning.employees.repository.CompanyRepository;
 import com.prateek.learning.employees.validation.CompanyRequestValidation;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -73,5 +75,10 @@ public class CompanyServiceImpl implements CompanyService {
             responseDTO.addError(new ErrorDTO("101", "Record does not exist."));
             return responseDTO;
         }
+    }
+
+    @Override
+    public List<Company> findAll(Specification<Company> companySpecification) {
+        return companyRepository.findAll(companySpecification);
     }
 }
